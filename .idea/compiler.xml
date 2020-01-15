@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sso_zuul_server" />
+        <module name="sso_provider_server" />
+        <module name="sso_server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sso_provider_server" target="1.8" />
+      <module name="sso_server" target="1.8" />
+      <module name="sso_server02" target="1.8" />
+      <module name="sso_zuul_server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sso_provider_server" options="-parameters" />
+      <module name="sso_server" options="-parameters" />
+      <module name="sso_server02" options="-parameters" />
+      <module name="sso_zuul_server" options="-parameters" />
+    </option>
+  </component>
+</project>

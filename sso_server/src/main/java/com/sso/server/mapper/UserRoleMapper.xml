@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sso.server.mapper.UserRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.sso.server.entity.UserRole" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="u_code" property="uCode" jdbcType="VARCHAR" />
+    <result column="r_code" property="rCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, u_code, r_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_role
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user_role
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sso.server.entity.UserRole" >
+    insert into user_role (id, u_code, r_code
+      )
+    values (#{id,jdbcType=VARCHAR}, #{uCode,jdbcType=VARCHAR}, #{rCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sso.server.entity.UserRole" >
+    insert into user_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uCode != null" >
+        u_code,
+      </if>
+      <if test="rCode != null" >
+        r_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="uCode != null" >
+        #{uCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rCode != null" >
+        #{rCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sso.server.entity.UserRole" >
+    update user_role
+    <set >
+      <if test="uCode != null" >
+        u_code = #{uCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rCode != null" >
+        r_code = #{rCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sso.server.entity.UserRole" >
+    update user_role
+    set u_code = #{uCode,jdbcType=VARCHAR},
+      r_code = #{rCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
